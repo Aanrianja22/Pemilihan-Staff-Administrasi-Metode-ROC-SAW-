@@ -524,7 +524,7 @@ foreach ($all_alternatives as $alt) {
                                                     </td>
                                                     <td><?php echo ($criteria['type'] === 'benefit' ? 'Benefit' : 'Cost'); ?></td>
                                                     <td><?php echo $inputTypeDisplay; ?></td>
-                                                    <td><?php echo number_format($criteria['weight'], 4); ?></td>
+                                                    <td><?php echo number_format($criteria['weight'], 3); ?></td>
                                                     <td>
                                                         <a href="index.php?tab=criteria&edit_criteria_id=<?php echo $criteria['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                                                         <form action="index.php" method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus kriteria ini? Ini juga akan menghapus nilai kriteria di alternatif.');">
@@ -707,7 +707,7 @@ foreach ($all_alternatives as $alt) {
                                                 <strong><?php echo htmlspecialchars($result['alternative']['name']); ?></strong>
                                             </div>
                                             <div>
-                                                <strong>Skor: <?php echo number_format($result['score'], 4); ?></strong>
+                                                <strong>Skor: <?php echo number_format($result['score'], 3); ?></strong>
                                             </div>
                                         </div>
                                     <?php endforeach; ?>
@@ -784,9 +784,9 @@ foreach ($all_alternatives as $alt) {
                                                         $normalized_value = $result['normalizedValues'][$criteria['id']] ?? 0;
                                                         $weighted_value = $normalized_value * $criteria['weight'];
                                                         ?>
-                                                        <td><?php echo number_format($normalized_value, 4); ?><br><small>(Norm x Bobot = <?php echo number_format($weighted_value, 4); ?>)</small></td>
+                                                        <td><?php echo number_format($normalized_value, 2); ?><br><small>(Norm x Bobot = <?php echo number_format($weighted_value, 4); ?>)</small></td>
                                                     <?php endforeach; ?>
-                                                    <td><strong><?php echo number_format($result['score'], 4); ?></strong></td>
+                                                    <td><strong><?php echo number_format($result['score'], 3); ?></strong></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
